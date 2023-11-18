@@ -1,0 +1,46 @@
+---
+import WSideMenuItem from './SideMenuWhiteItem.astro';
+import RSideMenuItem from './SideMenuRedItem.astro';
+import CardBCK from '../icons/CardBackward.astro';
+import ClubsSM from '../icons/ClubSM.astro';
+import HeartSM from '../icons/HeartSM.astro';
+import SpadeSM from '../icons/SpadeSM.astro';
+import DiamondSM from '../icons/DiamondSM.astro';
+import AsideTitle from './AsideTitle.astro';
+---
+
+<nav class="flex flex-col flex-1 gap-2">
+    <div class="bg-zinc-900 rounded-lg p-2">
+        <AsideTitle>
+            ADD YOUR OWN TWO CARDS:
+        </AsideTitle>
+        <ul>
+            <WSideMenuItem href="/">
+                <ClubsSM />
+                Clubs (A - K)
+                <CardBCK />
+            </WSideMenuItem>
+            <RSideMenuItem href="/">
+                <HeartSM />
+                Hearts (A - K)
+                <CardBCK />
+            </RSideMenuItem>
+            <WSideMenuItem href="/">
+                <SpadeSM />
+                Spades  (A - K)
+                <CardBCK />
+            </WSideMenuItem>
+            <RSideMenuItem href="/">
+                <DiamondSM />
+                Diamonds (A - K)
+                <CardBCK />
+            </RSideMenuItem>
+        </ul>
+    </div>
+    <div class="bg-zinc-900 rounded-lg p-2 flex-1">
+        <ul>
+            <WSideMenuItem href="/">
+            </SideMenuItem>
+        </ul>
+    </div>
+</nav>
