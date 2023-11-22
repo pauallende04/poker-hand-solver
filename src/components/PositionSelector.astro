@@ -1,0 +1,75 @@
+---
+import Button from '../components/Button.astro'
+import IntroButton from './IntroButton.astro';
+---
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const positions = ['BTN', 'SB', 'BB', 'UTG', 'MP', 'CO'];
+        let currentPosition = 0;
+
+        const setActivePosition = (newPosition: number) => {
+            // Remover la clase activa del botón actual
+            const currentButton = document.getElementById(positions[currentPosition]);
+            if (currentButton) {
+            currentButton.classList.remove('bg-green-500');
+            }
+
+            // Actualizar la posición actual
+            currentPosition = newPosition;
+
+            // Agregar la clase activa al nuevo botón
+            const newButton = document.getElementById(positions[currentPosition]);
+            if (newButton) {
+            newButton.classList.add('bg-green-500');
+            console.log('Mi posición actual en la mesa es: ', positions[currentPosition]);
+            }
+        };
+
+        const advancePosition = () => {
+            let nextPosition = (currentPosition + 1) % positions.length;
+            setActivePosition(nextPosition);
+        };
+
+        // Evento click para cada botón de posición
+        positions.forEach((position, index) => {
+            const button = document.getElementById(position);
+            if (button) {
+            button.addEventListener('click', () => setActivePosition(index));
+            }
+        });
+
+        // Evento click para el botón "Avanza"
+        const advanceButton = document.getElementById('advanceButton');
+        if (advanceButton) {
+            advanceButton.addEventListener('click', advancePosition);
+        }
+
+        // Inicializar la primera posición como activa
+        setActivePosition(0);
+    });
+</script>
+<div>
+    <ul role="list">
+        <Button id="BTN">
+            BTN
+        </Button>
+        <Button id="SB">
+            SB
+        </Button>
+        <Button id="BB">
+            BB
+        </Button>
+        <Button id="UTG">
+            UTG
+        </Button>
+        <Button id="MP">
+            MP
+        </Button>
+        <Button id="CO">
+            CO
+        </Button>
+    </ul>
+    <IntroButton id="advanceButton">
+        Avanza
+    </IntroButton>
+</div>

@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PositionSelector from '../components/PositionSelector.astro';
+import Header from '../components/Header.astro';
+import Subtitle from '../components/Subtitle.astro';
+import NotifBanner from '../components/NotifBanner.astro';
+import Pricing from '../components/PricingModule.astro';
+import Card from '../components/Card.astro';
+---
+
+<Layout title="PHS Dashboard">
+	<main class="grid grid-cols-2">
+		<Card>
+			<Subtitle slot="title">
+				Select your position
+			</Subtitle>
+			<PositionSelector slot="body"/>
+		</Card>
+		<Card>
+			<Subtitle slot="title">
+				Select your cards
+			</Subtitle>
+			
+		</Card>
+	</main>
+</Layout>

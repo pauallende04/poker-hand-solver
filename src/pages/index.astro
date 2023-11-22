@@ -1,0 +1,11 @@
+---
+import Presentation from "../layouts/Presentation.astro";
+import SignupButton from "../components/SignupButton.astro";
+import LoginButton from "../components/LoginButton.astro";
+import StarRainingBG from '../components/StarRainingBG.astro';
+---
+
+<Presentation title="Welcome to PHS!">
+    <LoginButton href="/login" slot="login"/>
+    <SignupButton href="/dashboard" slot="signup"/>
+</Presentation>
