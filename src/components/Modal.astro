@@ -1,0 +1,61 @@
+---
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+---
+<script>
+  // Obtener los elementos
+const botonAbrir = document.getElementById('abrirModal');
+const botonCerrar = document.getElementById('cerrarModal');
+const modal = document.getElementById('modal');
+
+// Función para abrir el modal
+botonAbrir.onclick = function() {
+    modal.style.display = "block";
+}
+
+// Función para cerrar el modal
+botonCerrar.onclick = function() {
+    modal.style.display = "none";
+}
+
+// Cerrar el modal al hacer clic fuera de él (opcional)
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+<!-- Botón para abrir el modal -->
+<button id="abrirModal">Abrir Modal</button>
+
+<div id={id} aria-labelledby="modal-title" role="dialog" style="display: none;" aria-modal="true">
+  <div class="fixed inset-0 overflow-y-auto">
+    <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+      <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all w-[80vw] h-[80vh]">
+        <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+          <div class="sm:flex sm:items-start">
+            <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-500 sm:mx-0 sm:h-10 sm:w-10">
+              <svg class="icon icon-tabler icon-tabler-play-card" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19 5v14a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2z" /><path d="M8 6h.01" /><path d="M16 18h.01" /><path d="M12 16l-3 -4l3 -4l3 4z" /></svg>
+            </div>
+            <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+              <h3 class="text-base py-2 font-semibold leading-6 text-gray-900" id="modal-title">Select your cards</h3>
+              <div class="mt-2">
+                <p class="text-sm text-gray-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum veritatis quam ab inventore id ipsum quidem impedit, nisi officia exercitationem distinctio tempora commodi quos amet cumque iste perferendis recusandae ex?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum, laborum molestias molestiae ut tenetur dignissimos ipsum impedit corrupti. Fugit, et vero. Et, error ea adipisci debitis soluta laborum excepturi Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt architecto, quo blanditiis saepe eaque neque facere deleniti rerum voluptatem! Ducimus, veritatis voluptatibus? Quasi velit et sunt delectus dolorem iure voluptas!Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum veritatis quam ab inventore id ipsum quidem impedit, nisi officia exercitationem distinctio tempora commodi quos amet cumque iste perferendis recusandae ex?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum, laborum molestias molestiae ut tenetur dignissimos ipsum impedit corrupti. Fugit, et vero. Et, error ea adipisci debitis soluta laborum excepturi Lorem ipsum dolor sit amet consectetur adipisicing elit. Inciduznt architecto, quo blanditiis saepe eaque neque facere deleniti rerum voluptatem! Ducimus, veritatis voluptatibus? Quasi velit et sunt delectus dolorem iure voluptas!
+                  nissimos ipsum impedit corrupti. Fugit, et vero. Et, error ea adipisci debitis soluta laborum excepturi Lorem ipsum dolor sit amet consectetur adipisicing elit. Inciduznt architecto, quo blanditiis saepe eaque neque facere deleniti rerum voluptatem! Ducimus, veritatis voluptatibus? Quasi velit et sunt delectus dolorem iure voluptas!
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-50 px-6 py-4 flex justify-end items-end">
+          <button type="button" class="rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" id="cerrarModal">Accept</button>
+        </div>       
+      </div>
+    </div>
+  </div>
+</div>

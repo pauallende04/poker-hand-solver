@@ -1,6 +1,7 @@
 ---
 import Button from '../components/Button.astro'
-import IntroButton from './IntroButton.astro';
+import IntroButton from './AvanzaButton.astro';
+import ChatGPTAPIConex from './ChatGPTAPIConex.astro';
 ---
 <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -46,29 +47,19 @@ import IntroButton from './IntroButton.astro';
 
         // Inicializar la primera posición como activa
         setActivePosition(0);
+
     });
 </script>
 <div>
     <ul role="list">
-        <Button id="BTN">
-            BTN
-        </Button>
-        <Button id="SB">
-            SB
-        </Button>
-        <Button id="BB">
-            BB
-        </Button>
-        <Button id="UTG">
-            UTG
-        </Button>
-        <Button id="MP">
-            MP
-        </Button>
-        <Button id="CO">
-            CO
-        </Button>
+        <Button id="BTN" color="black" hvcolor="grey-900">BTN</Button>
+        <Button id="SB" color="black" hvcolor="grey-900">SB</Button>
+        <Button id="BB" color="black" hvcolor="grey-900">BB</Button>
+        <Button id="UTG" color="black" hvcolor="grey-900">UTG</Button>
+        <Button id="MP" color="black" hvcolor="grey-900">MP</Button>
+        <Button id="CO" color="black" hvcolor="grey-900">CO</Button>
     </ul>
+
     <IntroButton id="advanceButton">
         Avanza
     </IntroButton>

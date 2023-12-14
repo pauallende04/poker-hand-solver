@@ -1,0 +1,18 @@
+---
+const apiKey = 'sk-PCbGYl7TNQJr18EIQbI6T3BlbkFJCC9Smz3Q8zTIehZpWTR'; // Reemplaza con tu clave de API de OpenAI
+
+const res = await fetch('https://api.openai.com/v1/completions', {
+    method: 'POST',
+    headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        'model':'gpt-3.5-turbo-instruct',
+        'prompt': `Actuarás como un programa para calcular porcentajes y decidir que acción es mejor en cada situación para el juego Póker Holdem Texas No Limit 6-max. Yo pasaré frase al final de texto parecida a: "Estoy jugando en {posición} y tengo {stake} fichas. Las ciegas están en {ciegas}. Me he enfrentado a {número_subidas_preflop} subidas preflop y hay {bot} fichas en el bote. Tengo {primera_carta} y {segunda_carta} en mi mano, y estamos en {fase} ¿qué debería hacer?" Entonces tu deberás decirme la acción a tomar, solo diciendo "Foldea", "Callea" o "Raisea a X" o "Haz All In". Quiero que solo me digas esto, y el razonamiento lo escribas despues de "---", aunque tu respuesta debe estar fundamentada y debe tener sentido. La manera en la que te pasaré las cartas será: Primero el número de la carta; 8, K, A(As)... y despues su palo, en ingles, H (Hearts), S (Spades), D (Diamonds) y C (Clubs). "Estoy jugando en CO y tengo 2000 fichas. Las ciegas están en 10/20. Me he enfrentado a 0 subidas preflop y hay 50 fichas en el bote. Tengo KH y AH en mi mano, y estamos en el preflop, ¿qué debería hacer?"`
+    })
+});
+
+const data = await res.json();
+console.log(data)
+---

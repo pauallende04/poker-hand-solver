@@ -1,0 +1,28 @@
+---
+interface Props {
+	href: string;
+}
+
+const { href } = Astro.props;
+---
+<div class="flex min-h-full flex-col justify-center lg:px-8">
+    <div class="sm:mx-auto sm:w-full sm:max-w-md">
+      <h2 class="mt-10 text-center text-3xl font-bold leading-9 tracking-tight text-white">
+        Privacy <span class="text-blue-500">&</span> Terms of Service
+      </h2>
+    </div>
+  
+    <div class="mt-5 sm:mx-auto sm:w-full sm:max-w-md">
+        <div class="py-8 shadow sm:rounded-lg">
+            <div class="mt-6">
+                <p class="text-sm leading-5 text-white">
+                By logging, using and registering in this website, you agree to the following terms of service and privacy policy. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab atque obcaecati nihil sed fugit facere omnis, temporibus minima perferendis vel, explicabo reprehenderit nesciunt ullam aliquam sunt natus magnam aut nobis quia totam? Aliquam rerum corrupti perferendis numquam laudantium unde quisquam, eaque laborum iusto nesciunt aliquid accusantium vel facilis alias adipisci nostrum quasi ipsum earum? Praesentium omnis non, pariatur expedita impedit id neque soluta et sint error dolores enim quos quaerat, hic in aut beatae? Error tempora voluptatum minus nisi voluptate amet ex reiciendis vero eaque culpa eligendi iusto, provident dolore libero omnis fuga earum sint tenetur. Officiis, repudiandae veniam soluta, corrupti eaque quidem iure rem mollitia voluptate, perspiciatis deserunt enim facere veritatis architecto dolor? Accusantium laudantium excepturi voluptatem numquam amet iste nemo consequuntur, quo, cumque sunt, error necessitatibus aperiam incidunt odit impedit architecto vero saepe et sint ex magnam provident veniam rem. Quaerat pariatur dolorum vel animi aut illum consectetur sed cupiditate officiis perferendis, est porro eos fuga illo quos saepe dignissimos perspiciatis. Harum doloribus in laborum distinctio vel nulla quod magnam eos! Aliquam id reiciendis atque sapiente harum deleniti fuga repellendus, suscipit hic assumenda cumque non temporibus est nesciunt velit. Quae saepe optio doloribus repudiandae distinctio dignissimos, harum dolorem.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="py-10 px-5">
+        <a type="submit" href={href} class="hover:cursor-pointer flex justify-center rounded-md bg-indigo-600 px-10 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Accept the Privacy & Terms of Service</a>
+    </div>
+  </div>
+  

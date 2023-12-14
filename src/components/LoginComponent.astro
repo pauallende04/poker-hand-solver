@@ -1,3 +1,28 @@
+<script>
+  const advanceButton = document.getElementById("viewpass");
+  var passwordLabel = document.getElementById("password") as HTMLInputElement;
+  var eye = document.getElementById("eye") as HTMLInputElement;
+  var eyeoff = document.getElementById("eye-off") as HTMLInputElement;
+  var buttonText = document.getElementById("buttonText") as HTMLInputElement;
+  const changeView = () => {
+    if (passwordLabel) {
+      passwordLabel.type =
+        passwordLabel.type === "password" ? "text" : "password";
+      if (passwordLabel.type === "password") {
+        eyeoff.classList.add("hidden");
+        eye.classList.remove("hidden");
+        buttonText.textContent = "See password";
+      } else {
+        eye.classList.add("hidden");
+        eyeoff.classList.remove("hidden");
+        buttonText.textContent = "Hide password";
+      }
+    }
+  };
+  if (advanceButton) {
+    advanceButton.addEventListener("click", changeView);
+  }
+</script>
 <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
   <div class="sm:mx-auto sm:w-full sm:max-w-md">
     <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">
@@ -25,14 +50,49 @@
             >Password</label
           >
           <div class="text-sm">
-            <button class="flex items-center font-semibold text-indigo-600 hover:text-indigo-500" type="button">
-              See password
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-eye ml-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/>
-                <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"/>
+            <button
+              class="flex items-center font-semibold text-indigo-600 hover:text-indigo-500"
+              type="button"
+              id="viewpass"
+            >
+              <span id="buttonText">See password</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-eye ml-2"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                id="eye"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+                <path
+                  d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"
+                ></path>
               </svg>
-            </button>            
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-eye-off hidden ml-2"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                id="eye-off"
+                ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                  d="M10.585 10.587a2 2 0 0 0 2.829 2.828"></path><path
+                  d="M16.681 16.673a8.717 8.717 0 0 1 -4.681 1.327c-3.6 0 -6.6 -2 -9 -6c1.272 -2.12 2.712 -3.678 4.32 -4.674m2.86 -1.146a9.055 9.055 0 0 1 1.82 -.18c3.6 0 6.6 2 9 6c-.666 1.11 -1.379 2.067 -2.138 2.87"
+                ></path><path d="M3 3l18 18"></path></svg
+              >
+            </button>          
           </div>
         </div>
         <div class="mt-2">
@@ -61,7 +121,7 @@
       <a
         href="/register"
         class="font-semibold leading-6 text-blue-500 hover:text-blue-400"
-        >Start a 14 day free trial</a
+        >Join in!</a
       >
     </p>
   </div>

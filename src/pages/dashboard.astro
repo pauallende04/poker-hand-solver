@@ -3,9 +3,10 @@ import Layout from '../layouts/Layout.astro';
 import PositionSelector from '../components/PositionSelector.astro';
 import Header from '../components/Header.astro';
 import Subtitle from '../components/Subtitle.astro';
-import NotifBanner from '../components/NotifBanner.astro';
-import Pricing from '../components/PricingModule.astro';
 import Card from '../components/Card.astro';
+import Modal from '../components/Modal.astro';
+import Button from '../components/Button.astro'
+import AddCard from '../img/AddCard.astro';
 ---
 
 <Layout title="PHS Dashboard">
@@ -20,7 +21,24 @@ import Card from '../components/Card.astro';
 			<Subtitle slot="title">
 				Select your cards
 			</Subtitle>
-			
+			<div slot="body">
+				<ul role="list">
+					<Button id="" color="black" hvcolor=''>
+						CLUBS
+					</Button>
+					<Button id="" color="red-800" hvcolor='red-500'>	
+						HEARTS
+					</Button>
+					<Button id="" color="black" hvcolor=''>
+						SPADES
+					</Button>
+					<Button id="" color="red-800"  hvcolor=''>
+						DIAMONDS 
+					</Button>
+					<AddCard />
+					<Modal id='modal'/>
+				</ul>
+			</div>
 		</Card>
 	</main>
 </Layout>

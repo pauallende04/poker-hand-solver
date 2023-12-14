@@ -1,7 +1,7 @@
 <div class="container p-4">
-	<div class="link-card flex list-none p-[1px] bg-[#23262d] rounded-[7px] transition-[background-position_0.6s_cubic-bezier(0.22,_1,_0.36,_1)] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)] hover:bg-[position:0] focus-within:bg-[position:0]">
+	<div class="link-card flex list-none p-[1px] bg-[#23262d] rounded-[7px]">
 		<a class="block w-full no-underline leading-[1.4] p-[calc(1.5rem_-_1px)] rounded-[8px] text-white bg-[#23262d] opacity-80">
-			<h2 class="m-0 text-[1.25rem] transition-[color_0.6s_cubic-bezier(0.22,_1,_0.36,_1)] hover:text-[rgb(var(--accent-light))] focus-within:text-[rgb(var(--accent-light))]" >
+			<h2 class="m-0 text-[1.25rem]" >
 				<slot name="title" />
 			</h2>
 			<p class="mt-2 mb-0">
@@ -17,7 +17,7 @@
 		background-position: 100%;
 		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 	}
-	.link-card:is(:hover, :focus-within) {
+	.link-card:is(:focus-within) {
 		background-position: 0;
 		background-image: var(--accent-gradient);
 	}
