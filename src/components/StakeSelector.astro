@@ -1,0 +1,143 @@
+---
+import Button from '../components/Button.astro';
+import AvanzaButton from '../components/AvanzaButton.astro';
+---
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Obtener referencia a los botones de las ciegas
+        const button1 = document.getElementById('btn1');
+        const button2 = document.getElementById('btn2');
+        const button3 = document.getElementById('btn3');
+        const avanzabutton = document.getElementById('avanzaButton');
+
+        // Agregar un evento de clic a cada botón de ciegas
+        button1.addEventListener('click', function(event) {
+            updateBlindsValue(button1.textContent.trim());
+        });
+
+        button2.addEventListener('click', function(event) {
+            updateBlindsValue(button2.textContent.trim());
+        });
+
+        button3.addEventListener('click', function(event) {
+            updateBlindsValue(button3.textContent.trim());
+        });
+
+        // Obtener referencia al input de las ciegas
+        const inputBlinds = document.getElementById('blinds');
+
+        // Agregar un evento de escucha para cambios en el input
+        inputBlinds.addEventListener('input', function (event) {
+            // Obtener el valor del input
+            const value = event.target.value;
+            
+            // Actualizar el contenido del div de las ciegas
+            updateBlindsValue(value);
+        });
+
+        // Agregar un evento de clic al botón de AvanzaButton
+        avanzabutton.addEventListener('click', function(event) {
+            // Obtener el valor actual de las ciegas
+            const currentValue = document.getElementById('blindsValue').textContent;
+
+            // Verificar si hay ciegas seleccionadas antes de duplicarlas
+            if (currentValue !== "") {
+                // Dividir el valor en la mitad y actualizar el div de las ciegas
+                const blindsValue = currentValue.split('/');
+                const newBlindsValue = parseInt(blindsValue[0]) * 2 + '/' + parseInt(blindsValue[1]) * 2;
+                updateBlindsValue(newBlindsValue);
+            } else {
+                // Mostrar un mensaje o realizar otra acción si no hay ciegas seleccionadas
+                alert("Please select blinds before duplicating.");
+            }
+        });
+
+        function updateBlindsValue(value) {
+            // Actualizar el contenido del div de las ciegas
+            const blindsDiv = document.getElementById('blindsValue');
+            blindsDiv.textContent = value;
+        }
+
+        // Obtener referencia al input de las ciegas
+        const inputStake = document.getElementById('stake');
+
+        // Agregar un evento de escucha para cambios en el input
+        inputStake.addEventListener('input', function (event) {
+            // Obtener el valor del input
+            const value = event.target.value;
+            
+            // Actualizar el contenido del div de las ciegas
+            updateStakeValue(value);
+        });
+
+        function updateStakeValue(value) {
+            // Convertir el valor a un número entero
+            const intValue = parseInt(value);
+
+            // Verificar si el valor es mayor o igual a 1 millón (1,000,000)
+            if (intValue >= 1000000) {
+                // Dividir por 1 millón y agregar "m" al final
+                const newValue = (intValue / 1000000).toFixed(2) + "m";
+                const stakeDiv = document.getElementById('stakeValue');
+                stakeDiv.textContent = newValue;
+            }
+            // Verificar si el valor es mayor o igual a 1,000 (1K)
+            else if (intValue >= 1000) {
+                // Dividir por 1,000 y agregar "k" al final
+                const newValue = (intValue / 1000).toFixed(2) + "k";
+                const stakeDiv = document.getElementById('stakeValue');
+                stakeDiv.textContent = newValue;
+            }
+            // Si el valor es menor a 1,000, simplemente mostrarlo tal cual
+            else {
+                const stakeDiv = document.getElementById('stakeValue');
+                stakeDiv.textContent = value;
+            }
+        }
+    });
+</script>
+
+
+<div>
+    <ul role="list">
+        <Button id="btn1" color="black" hvcolor=''>
+            10/20
+        </Button>
+        <Button id="btn2" color="black" hvcolor=''>
+            25/50
+        </Button>
+        <Button id="btn3" color="black" hvcolor=''>
+            50/100
+        </Button>
+        <AvanzaButton id="avanzaButton">
+            DUPE YOUR CURRENT BLINDS X2
+        </AvanzaButton>
+        <div class="flex flex-wrap">
+            <div class="w-full sm:w-1/3 px-1.5 mt-2">
+                <input
+                  placeholder="blinds: 5/10..."
+                  id="blinds"
+                  name="blinds"
+                  type="text"
+                  class="pl-4 mb-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 w-full"
+                />
+            </div>
+            <div class="w-full sm:w-1/3 px-1.5 mt-2">
+                <input
+                  placeholder="stake: 20000..."
+                  id="stake"
+                  name="stake"
+                  type="text"
+                  class="pl-4 mb-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 w-full"
+                />
+            </div>
+        </div>
+        <br>
+        <div>
+            <Button id="BlindsButton"> Blinds: <span id="blindsValue"></span> </Button>
+        </div>
+        <div>
+            <Button id="StakeButton"> Stake: <span id="stakeValue"></span> </Button>
+        </div>
+    </ul>
+</div>

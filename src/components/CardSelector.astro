@@ -1,0 +1,158 @@
+---
+import Button from '../components/Button.astro';
+---
+<script>
+	// JavaScript para manejar la apertura y cierre del modal clubs
+	const clubs_modal = document.getElementById('clubs-m');
+	const btn_c = document.getElementById('button-clubs-m');
+	const span_c = document.getElementById('close-clubs-m');
+	
+	btn_c.onclick = function() {
+		clubs_modal.classList.remove('hidden');
+	}
+	
+	span_c.onclick = function() {
+		clubs_modal.classList.add('hidden');
+	}
+	
+	window.onclick = function(event) {
+	  if (event.target == clubs_modal) {
+		clubs_modal.classList.add('hidden');
+	  }
+	}
+
+    // JavaScript para manejar la apertura y cierre del modal hearts
+	const hearts_modal = document.getElementById('hearts-m');
+	const btn_h = document.getElementById('button-hearts-m');
+	const span_h = document.getElementById('close-hearts-m');
+	
+	btn_h.onclick = function() {
+		hearts_modal.classList.remove('hidden');
+	}
+	
+	span_h.onclick = function() {
+		hearts_modal.classList.add('hidden');
+	}
+	
+	window.onclick = function(event) {
+	  if (event.target == hearts_modal) {
+		hearts_modal.classList.add('hidden');
+	  }
+	}
+
+    // JavaScript para manejar la apertura y cierre del modal spades
+	const spades_modal = document.getElementById('spades-m');
+	const btn_s = document.getElementById('button-spades-m');
+	const span_s = document.getElementById('close-spades-m');
+	
+	btn_s.onclick = function() {
+		spades_modal.classList.remove('hidden');
+	}
+	
+	span_s.onclick = function() {
+		spades_modal.classList.add('hidden');
+	}
+	
+	window.onclick = function(event) {
+	  if (event.target == spades_modal) {
+		spades_modal.classList.add('hidden');
+	  }
+	}
+
+    // JavaScript para manejar la apertura y cierre del modal diamonds
+	const diamonds_modal = document.getElementById('diamonds-m');
+	const btn_d = document.getElementById('button-diamonds-m');
+	const span_d = document.getElementById('close-diamonds-m');
+	
+	btn_d.onclick = function() {
+		diamonds_modal.classList.remove('hidden');
+	}
+	
+	span_d.onclick = function() {
+		diamonds_modal.classList.add('hidden');
+	}
+	
+	window.onclick = function(event) {
+	  if (event.target == diamonds_modal) {
+		diamonds_modal.classList.add('hidden');
+	  }
+	}
+  </script>
+  <style>
+	.close {
+	  color: #aaa;
+	}
+  
+	.close:hover,
+	.close:focus {
+	  color: #000;
+	}
+  </style>
+  
+	<!-- Clubs Modal -->
+	<div id="clubs-m" class="modal hidden fixed z-10 inset-0 overflow-y-auto bg-black bg-opacity-50">
+		<div class="flex items-center justify-center h-screen">
+			<!-- Modal content -->
+			<div class="modal-content bg-white p-6 rounded-lg shadow-lg w-96">
+				<span id="close-clubs-m" class="close absolute top-0 right-0 cursor-pointer p-4">&times;</span>
+				<p>This is a modal!</p>
+			</div>
+		</div>
+	</div>
+
+    <!-- Hearts Modal -->
+	<div id="hearts-m" class="modal hidden fixed z-10 inset-0 overflow-y-auto bg-black bg-opacity-50">
+		<div class="flex items-center justify-center h-screen">
+			<!-- Modal content -->
+			<div class="modal-content bg-white p-6 rounded-lg shadow-lg w-96">
+				<span id="close-hearts-m" class="close absolute top-0 right-0 cursor-pointer p-4">&times;</span>
+				<p>This is a modal!</p>
+			</div>
+		</div>
+	</div>
+
+    <!-- Spades Modal -->
+	<div id="spades-m" class="modal hidden fixed z-10 inset-0 overflow-y-auto bg-black bg-opacity-50">
+		<div class="flex items-center justify-center h-screen">
+			<!-- Modal content -->
+			<div class="modal-content bg-white p-6 rounded-lg shadow-lg w-96">
+				<span id="close-spades-m" class="close absolute top-0 right-0 cursor-pointer p-4">&times;</span>
+				<p>This is a modal!</p>
+			</div>
+		</div>
+	</div>
+
+    <!-- Diamonds Modal -->
+	<div id="diamonds-m" class="modal hidden fixed z-10 inset-0 overflow-y-auto bg-black bg-opacity-50">
+		<div class="flex items-center justify-center h-screen">
+			<!-- Modal content -->
+			<div class="modal-content bg-white p-6 rounded-lg shadow-lg w-96">
+				<span id="close-diamonds-m" class="close absolute top-0 right-0 cursor-pointer p-4">&times;</span>
+				<p>This is a modal!</p>
+			</div>
+		</div>
+	</div>
+
+    <div>
+        <ul role="list">
+            <Button id="button-clubs-m" color="black" hvcolor=''>
+                CLUBS
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clubs"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3a4 4 0 0 1 3.164 6.447a4 4 0 1 1 -1.164 6.198v1.355l1 4h-6l1 -4l0 -1.355a4 4 0 1 1 -1.164 -6.199a4 4 0 0 1 3.163 -6.446z" /></svg>
+                
+            </Button>
+            <Button id="button-hearts-m" color="red" hvcolor=''>
+                HEARTS
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-heart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg>
+                
+            </Button>
+            <Button id="button-spades-m" color="black" hvcolor=''>
+                SPADES
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-spade"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3l4.919 4.5c.61 .587 1.177 1.177 1.703 1.771a5.527 5.527 0 0 1 .264 6.979c-1.18 1.56 -3.338 1.92 -4.886 .75v1l1 3h-6l1 -3v-1c-1.54 1.07 -3.735 .772 -4.886 -.75a5.527 5.527 0 0 1 .264 -6.979a30.883 30.883 0 0 1 1.703 -1.771a1541.72 1541.72 0 0 1 4.919 -4.5z" /></svg>
+                
+            </Button>
+            <Button id="button-diamonds-m" color="red" hvcolor=''>
+                DIAMONDS
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-diamonds"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.831 20.413l-5.375 -6.91c-.608 -.783 -.608 -2.223 0 -3l5.375 -6.911a1.457 1.457 0 0 1 2.338 0l5.375 6.91c.608 .783 .608 2.223 0 3l-5.375 6.911a1.457 1.457 0 0 1 -2.338 0z" /></svg>
+            </Button>
+        </ul>
+    </div>

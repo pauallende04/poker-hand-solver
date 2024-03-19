@@ -1,0 +1,46 @@
+---
+import Button from './Button.astro';
+import AvanzaButton from './AvanzaButton.astro';
+---
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        // Obtener referencia al input de las ciegas
+        const inputStake = document.getElementById('midbot');
+
+        // Agregar un evento de escucha para cambios en el input
+        inputStake.addEventListener('input', function (event) {
+            // Obtener el valor del input
+            const value = event.target.value;
+            
+            // Actualizar el contenido del div de las ciegas
+            updateStakeValue(value);
+        });
+
+        function updateStakeValue(value) {
+            const stakeDiv = document.getElementById('midBot');
+            stakeDiv.textContent = value;
+        }
+    });
+</script>
+
+
+<div>
+    <ul role="list">
+        <div class="flex flex-wrap">
+            <div class="w-full sm:w-1/2 mt-2">
+                <input
+                  placeholder="The current mid bot is..."
+                  id="midbot"
+                  name="midbot"
+                  type="text"
+                  class="pl-4 mb-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 w-full"
+                />
+            </div>
+        </div>
+        <br>
+        <div>
+            <Button id="MidBot"> Mid Bot: <span id="midBot"></span> </Button>
+        </div>
+    </ul>
+</div>

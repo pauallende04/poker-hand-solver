@@ -1,14 +1,107 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PositionSelector from '../components/PositionSelector.astro';
-import Header from '../components/Header.astro';
 import Subtitle from '../components/Subtitle.astro';
 import Card from '../components/Card.astro';
-import Modal from '../components/Modal.astro';
 import Button from '../components/Button.astro'
-import AddCard from '../img/AddCard.astro';
+import StakeSelector from '../components/StakeSelector.astro';
+import MidBotSelector from '../components/MidBotSelector.astro';
+import CardSelector from '../components/CardSelector.astro';
 ---
+<script>
+	// JavaScript para manejar la apertura y cierre del modal clubs
+	const clubs_modal = document.getElementById('clubs-m');
+	const btn_c = document.getElementById('button-clubs-m');
+	const span_c = document.getElementById('close-clubs-m');
+	
+	btn_c.onclick = function() {
+		clubs_modal.classList.remove('hidden');
+	}
+	
+	span_c.onclick = function() {
+		clubs_modal.classList.add('hidden');
+	}
+	
+	window.onclick = function(event) {
+	  if (event.target == clubs_modal) {
+		clubs_modal.classList.add('hidden');
+	  }
+	}
 
+	// JavaScript para manejar la apertura y cierre del modal hearts
+	const hearts_modal = document.getElementById('hearts-m');
+	const btn_h = document.getElementById('button-hearts-m');
+	const span_h = document.getElementById('close-hearts-m');
+	
+	btn_h.onclick = function() {
+		hearts_modal.classList.remove('hidden');
+	}
+	
+	span_h.onclick = function() {
+		hearts_modal.classList.add('hidden');
+	}
+	
+	window.onclick = function(event) {
+	  if (event.target == hearts_modal) {
+		hearts_modal.classList.add('hidden');
+	  }
+	}
+
+	// JavaScript para manejar la apertura y cierre del modal spades
+	const spades_modal = document.getElementById('spades-m');
+	const btn_s = document.getElementById('button-spades-m');
+	const span_s = document.getElementById('close-spades-m');
+	
+	btn_s.onclick = function() {
+		spades_modal.classList.remove('hidden');
+	}
+	
+	span_s.onclick = function() {
+		spades_modal.classList.add('hidden');
+	}
+	
+	window.onclick = function(event) {
+	  if (event.target == spades_modal) {
+		spades_modal.classList.add('hidden');
+	  }
+	}
+
+	// JavaScript para manejar la apertura y cierre del modal diamonds
+	const diamonds_modal = document.getElementById('diamonds-m');
+	const btn_d = document.getElementById('button-diamonds-m');
+	const span_d = document.getElementById('close-diamonds-m');
+	
+	btn_d.onclick = function() {
+		diamonds_modal.classList.remove('hidden');
+	}
+	
+	span_d.onclick = function() {
+		diamonds_modal.classList.add('hidden');
+	}
+	
+	window.onclick = function(event) {
+	  if (event.target == diamonds_modal) {
+		diamonds_modal.classList.add('hidden');
+	  }
+	}
+
+	let carta_1 = ''; // Variable para almacenar el botón seleccionado
+  
+	// Obtener todos los botones y agregarles event listeners
+	const buttons = document.querySelectorAll('.btn-option');
+	buttons.forEach(button => {
+		button.addEventListener('click', function() {
+		carta_1 = button.id;
+		console.log('Option selected:', carta_1);
+		// Puedes hacer más cosas aquí, como cambiar el estilo del botón seleccionado, etc.
+		});
+	});
+  </script>
+  <style>
+	.close {
+	  color: #aaa;
+	}
+  </style>
 <Layout title="PHS Dashboard">
 	<main class="grid grid-cols-2">
 		<Card>
@@ -21,24 +114,361 @@ import AddCard from '../img/AddCard.astro';
 			<Subtitle slot="title">
 				Select your cards
 			</Subtitle>
-			<div slot="body">
-				<ul role="list">
-					<Button id="" color="black" hvcolor=''>
-						CLUBS
-					</Button>
-					<Button id="" color="red-800" hvcolor='red-500'>	
-						HEARTS
-					</Button>
-					<Button id="" color="black" hvcolor=''>
-						SPADES
-					</Button>
-					<Button id="" color="red-800"  hvcolor=''>
-						DIAMONDS 
-					</Button>
-					<AddCard />
-					<Modal id='modal'/>
-				</ul>
-			</div>
+				<div slot="body">
+					<ul role="list">
+						<Button id="button-clubs-m" color="black" hvcolor=''>
+							CLUBS
+							<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clubs"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3a4 4 0 0 1 3.164 6.447a4 4 0 1 1 -1.164 6.198v1.355l1 4h-6l1 -4l0 -1.355a4 4 0 1 1 -1.164 -6.199a4 4 0 0 1 3.163 -6.446z" /></svg>
+							
+						</Button>
+						<Button id="button-hearts-m" color="red" hvcolor=''>
+							HEARTS
+							<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-heart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg>
+							
+						</Button>
+						<Button id="button-spades-m" color="black" hvcolor=''>
+							SPADES
+							<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-spade"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3l4.919 4.5c.61 .587 1.177 1.177 1.703 1.771a5.527 5.527 0 0 1 .264 6.979c-1.18 1.56 -3.338 1.92 -4.886 .75v1l1 3h-6l1 -3v-1c-1.54 1.07 -3.735 .772 -4.886 -.75a5.527 5.527 0 0 1 .264 -6.979a30.883 30.883 0 0 1 1.703 -1.771a1541.72 1541.72 0 0 1 4.919 -4.5z" /></svg>
+							
+						</Button>
+						<Button id="button-diamonds-m" color="red" hvcolor=''>
+							DIAMONDS
+							<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-diamonds"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.831 20.413l-5.375 -6.91c-.608 -.783 -.608 -2.223 0 -3l5.375 -6.911a1.457 1.457 0 0 1 2.338 0l5.375 6.91c.608 .783 .608 2.223 0 3l-5.375 6.911a1.457 1.457 0 0 1 -2.338 0z" /></svg>
+						</Button>
+					</ul>
+				</div>
 		</Card>
+		<Card>
+			<Subtitle slot="title">
+				Select your stake and blinds
+			</Subtitle>
+			<StakeSelector slot="body" />
+		</Card>
+		<Card>
+			<Subtitle slot="title">
+				Select the mid bot
+			</Subtitle>
+			<MidBotSelector slot="body" />
+		</Card>
+		
 	</main>
+	<div class="flex justify-center">
+		<main class="grid grid-cols-3 py-7">
+			<Button id='btn' color='green' hvcolor=''> Check actions</Button>
+			<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="white" class="icon icon-tabler icons-tabler-filled icon-tabler-arrow-big-right-lines transform -translate-y-1/5 ml-16"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12.089 3.634a2 2 0 0 0 -1.089 1.78l-.001 2.585l-1.999 .001a1 1 0 0 0 -1 1v6l.007 .117a1 1 0 0 0 .993 .883l1.999 -.001l.001 2.587a2 2 0 0 0 3.414 1.414l6.586 -6.586a2 2 0 0 0 0 -2.828l-6.586 -6.586a2 2 0 0 0 -2.18 -.434l-.145 .068z" /><path d="M3 8a1 1 0 0 1 .993 .883l.007 .117v6a1 1 0 0 1 -1.993 .117l-.007 -.117v-6a1 1 0 0 1 1 -1z" /><path d="M6 8a1 1 0 0 1 .993 .883l.007 .117v6a1 1 0 0 1 -1.993 .117l-.007 -.117v-6a1 1 0 0 1 1 -1z" /></svg>
+			
+			<div class="w-full px-1.5 mt-2">
+				<input
+					id="result"
+					name="result"
+					type="text"
+					class="pl-4 mb-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 w-full"
+				/>
+			</div>
+		</main>
+	</div>
+	
 </Layout>
+<!-- Clubs Modal -->
+<div id="clubs-m" class="modal hidden fixed z-10 inset-0 overflow-y-auto bg-black bg-opacity-50">
+	<div class="flex items-center justify-center h-screen">
+		<!-- Modal content -->
+		<div class="modal-content bg-white p-6 rounded-lg shadow-lg w-2/3 h-80">
+			<span id="close-clubs-m" class="close absolute top-0 right-0 cursor-pointer p-4">&times;</span>
+      		<p class="mb-4">Select an option:</p>
+			<!-- Grid for buttons -->
+			<div class="grid grid-cols-4 gap-2">
+				<Button id="c-a" color="black" hvcolor=''>
+					AS
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clubs"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3a4 4 0 0 1 3.164 6.447a4 4 0 1 1 -1.164 6.198v1.355l1 4h-6l1 -4l0 -1.355a4 4 0 1 1 -1.164 -6.199a4 4 0 0 1 3.163 -6.446z" /></svg>
+					
+				</Button>
+				<Button id="c-2" color="black" hvcolor=''>
+					2
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clubs"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3a4 4 0 0 1 3.164 6.447a4 4 0 1 1 -1.164 6.198v1.355l1 4h-6l1 -4l0 -1.355a4 4 0 1 1 -1.164 -6.199a4 4 0 0 1 3.163 -6.446z" /></svg>
+					
+				</Button>
+				<Button id="c-3" color="black" hvcolor=''>
+					3
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clubs"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3a4 4 0 0 1 3.164 6.447a4 4 0 1 1 -1.164 6.198v1.355l1 4h-6l1 -4l0 -1.355a4 4 0 1 1 -1.164 -6.199a4 4 0 0 1 3.163 -6.446z" /></svg>
+					
+				</Button>
+				<Button id="c-4" color="black" hvcolor=''>
+					4
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clubs"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3a4 4 0 0 1 3.164 6.447a4 4 0 1 1 -1.164 6.198v1.355l1 4h-6l1 -4l0 -1.355a4 4 0 1 1 -1.164 -6.199a4 4 0 0 1 3.163 -6.446z" /></svg>
+					
+				</Button>
+				<Button id="c-5" color="black" hvcolor=''>
+					5
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clubs"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3a4 4 0 0 1 3.164 6.447a4 4 0 1 1 -1.164 6.198v1.355l1 4h-6l1 -4l0 -1.355a4 4 0 1 1 -1.164 -6.199a4 4 0 0 1 3.163 -6.446z" /></svg>
+					
+				</Button>
+				<Button id="c-6" color="black" hvcolor=''>
+					6
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clubs"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3a4 4 0 0 1 3.164 6.447a4 4 0 1 1 -1.164 6.198v1.355l1 4h-6l1 -4l0 -1.355a4 4 0 1 1 -1.164 -6.199a4 4 0 0 1 3.163 -6.446z" /></svg>
+					
+				</Button>
+				<Button id="c-7" color="black" hvcolor=''>
+					7
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clubs"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3a4 4 0 0 1 3.164 6.447a4 4 0 1 1 -1.164 6.198v1.355l1 4h-6l1 -4l0 -1.355a4 4 0 1 1 -1.164 -6.199a4 4 0 0 1 3.163 -6.446z" /></svg>
+					
+				</Button>
+				<Button id="c-8" color="black" hvcolor=''>
+					8
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clubs"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3a4 4 0 0 1 3.164 6.447a4 4 0 1 1 -1.164 6.198v1.355l1 4h-6l1 -4l0 -1.355a4 4 0 1 1 -1.164 -6.199a4 4 0 0 1 3.163 -6.446z" /></svg>
+					
+				</Button>
+				<Button id="c-9" color="black" hvcolor=''>
+					9
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clubs"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3a4 4 0 0 1 3.164 6.447a4 4 0 1 1 -1.164 6.198v1.355l1 4h-6l1 -4l0 -1.355a4 4 0 1 1 -1.164 -6.199a4 4 0 0 1 3.163 -6.446z" /></svg>
+					
+				</Button>
+				<Button id="c-10" color="black" hvcolor=''>
+					10
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clubs"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3a4 4 0 0 1 3.164 6.447a4 4 0 1 1 -1.164 6.198v1.355l1 4h-6l1 -4l0 -1.355a4 4 0 1 1 -1.164 -6.199a4 4 0 0 1 3.163 -6.446z" /></svg>
+					
+				</Button>
+				<Button id="c-j" color="black" hvcolor=''>
+					J
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clubs"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3a4 4 0 0 1 3.164 6.447a4 4 0 1 1 -1.164 6.198v1.355l1 4h-6l1 -4l0 -1.355a4 4 0 1 1 -1.164 -6.199a4 4 0 0 1 3.163 -6.446z" /></svg>
+					
+				</Button>
+				<Button id="c-q" color="black" hvcolor=''>
+					Q
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clubs"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3a4 4 0 0 1 3.164 6.447a4 4 0 1 1 -1.164 6.198v1.355l1 4h-6l1 -4l0 -1.355a4 4 0 1 1 -1.164 -6.199a4 4 0 0 1 3.163 -6.446z" /></svg>
+					
+				</Button>
+				<Button id="c-k" color="black" hvcolor=''>
+					K
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clubs"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3a4 4 0 0 1 3.164 6.447a4 4 0 1 1 -1.164 6.198v1.355l1 4h-6l1 -4l0 -1.355a4 4 0 1 1 -1.164 -6.199a4 4 0 0 1 3.163 -6.446z" /></svg>
+					
+				</Button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Hearts Modal -->
+<div id="hearts-m" class="modal hidden fixed z-10 inset-0 overflow-y-auto bg-black bg-opacity-50">
+	<div class="flex items-center justify-center h-screen">
+		<!-- Modal content -->
+		<div class="modal-content bg-white p-6 rounded-lg shadow-lg w-2/3 h-80">
+			<span id="close-hearts-m" class="close absolute top-0 right-0 cursor-pointer p-4">&times;</span>
+      		<p class="mb-4">Select an option:</p>
+			<!-- Grid for buttons -->
+			<div class="grid grid-cols-4 gap-2">
+				<Button id="h-a" color="red" hvcolor=''>
+					AS
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-heart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg>
+					
+				</Button>
+				<Button id="h-2" color="red" hvcolor=''>
+					2
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-heart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg>
+					
+				</Button>
+				<Button id="h-3" color="red" hvcolor=''>
+					3
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-heart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg>
+					
+				</Button>
+				<Button id="h-4" color="red" hvcolor=''>
+					4
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-heart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg>
+					
+				</Button>
+				<Button id="h-5" color="red" hvcolor=''>
+					5
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-heart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg>
+					
+				</Button>
+				<Button id="h-6" color="red" hvcolor=''>
+					6
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-heart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg>
+					
+				</Button>
+				<Button id="h-7" color="red" hvcolor=''>
+					7
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-heart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg>
+					
+				</Button>
+				<Button id="h-8" color="red" hvcolor=''>
+					8
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-heart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg>
+					
+				</Button>
+				<Button id="h-9" color="red" hvcolor=''>
+					9
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-heart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg>
+					
+				</Button>
+				<Button id="h-10" color="red" hvcolor=''>
+					10
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-heart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg>
+					
+				</Button>
+				<Button id="h-j" color="red" hvcolor=''>
+					J
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-heart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg>
+					
+				</Button>
+				<Button id="h-q" color="red" hvcolor=''>
+					Q
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-heart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg>
+					
+				</Button>
+				<Button id="h-k" color="red" hvcolor=''>
+					K
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-heart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg>
+					
+				</Button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Spades Modal -->
+<div id="spades-m" class="modal hidden fixed z-10 inset-0 overflow-y-auto bg-black bg-opacity-50">
+	<div class="flex items-center justify-center h-screen">
+		<!-- Modal content -->
+		<div class="modal-content bg-white p-6 rounded-lg shadow-lg w-2/3 h-80">
+			<span id="close-spades-m" class="close absolute top-0 right-0 cursor-pointer p-4">&times;</span>
+      		<p class="mb-4">Select an option:</p>
+			<!-- Grid for buttons -->
+			<div class="grid grid-cols-4 gap-2">
+				<Button id="s-a" color="black" hvcolor=''>
+					AS
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-spade"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3l4.919 4.5c.61 .587 1.177 1.177 1.703 1.771a5.527 5.527 0 0 1 .264 6.979c-1.18 1.56 -3.338 1.92 -4.886 .75v1l1 3h-6l1 -3v-1c-1.54 1.07 -3.735 .772 -4.886 -.75a5.527 5.527 0 0 1 .264 -6.979a30.883 30.883 0 0 1 1.703 -1.771a1541.72 1541.72 0 0 1 4.919 -4.5z" /></svg>
+					
+				</Button>
+				<Button id="s-2" color="black" hvcolor=''>
+					2
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-spade"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3l4.919 4.5c.61 .587 1.177 1.177 1.703 1.771a5.527 5.527 0 0 1 .264 6.979c-1.18 1.56 -3.338 1.92 -4.886 .75v1l1 3h-6l1 -3v-1c-1.54 1.07 -3.735 .772 -4.886 -.75a5.527 5.527 0 0 1 .264 -6.979a30.883 30.883 0 0 1 1.703 -1.771a1541.72 1541.72 0 0 1 4.919 -4.5z" /></svg>
+					
+				</Button>
+				<Button id="s-3" color="black" hvcolor=''>
+					3
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-spade"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3l4.919 4.5c.61 .587 1.177 1.177 1.703 1.771a5.527 5.527 0 0 1 .264 6.979c-1.18 1.56 -3.338 1.92 -4.886 .75v1l1 3h-6l1 -3v-1c-1.54 1.07 -3.735 .772 -4.886 -.75a5.527 5.527 0 0 1 .264 -6.979a30.883 30.883 0 0 1 1.703 -1.771a1541.72 1541.72 0 0 1 4.919 -4.5z" /></svg>
+					
+				</Button>
+				<Button id="s-4" color="black" hvcolor=''>
+					4
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-spade"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3l4.919 4.5c.61 .587 1.177 1.177 1.703 1.771a5.527 5.527 0 0 1 .264 6.979c-1.18 1.56 -3.338 1.92 -4.886 .75v1l1 3h-6l1 -3v-1c-1.54 1.07 -3.735 .772 -4.886 -.75a5.527 5.527 0 0 1 .264 -6.979a30.883 30.883 0 0 1 1.703 -1.771a1541.72 1541.72 0 0 1 4.919 -4.5z" /></svg>
+					
+				</Button>
+				<Button id="s-5" color="black" hvcolor=''>
+					5
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-spade"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3l4.919 4.5c.61 .587 1.177 1.177 1.703 1.771a5.527 5.527 0 0 1 .264 6.979c-1.18 1.56 -3.338 1.92 -4.886 .75v1l1 3h-6l1 -3v-1c-1.54 1.07 -3.735 .772 -4.886 -.75a5.527 5.527 0 0 1 .264 -6.979a30.883 30.883 0 0 1 1.703 -1.771a1541.72 1541.72 0 0 1 4.919 -4.5z" /></svg>
+					
+				</Button>
+				<Button id="s-6" color="black" hvcolor=''>
+					6
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-spade"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3l4.919 4.5c.61 .587 1.177 1.177 1.703 1.771a5.527 5.527 0 0 1 .264 6.979c-1.18 1.56 -3.338 1.92 -4.886 .75v1l1 3h-6l1 -3v-1c-1.54 1.07 -3.735 .772 -4.886 -.75a5.527 5.527 0 0 1 .264 -6.979a30.883 30.883 0 0 1 1.703 -1.771a1541.72 1541.72 0 0 1 4.919 -4.5z" /></svg>
+					
+				</Button>
+				<Button id="s-7" color="black" hvcolor=''>
+					7
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-spade"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3l4.919 4.5c.61 .587 1.177 1.177 1.703 1.771a5.527 5.527 0 0 1 .264 6.979c-1.18 1.56 -3.338 1.92 -4.886 .75v1l1 3h-6l1 -3v-1c-1.54 1.07 -3.735 .772 -4.886 -.75a5.527 5.527 0 0 1 .264 -6.979a30.883 30.883 0 0 1 1.703 -1.771a1541.72 1541.72 0 0 1 4.919 -4.5z" /></svg>
+					
+				</Button>
+				<Button id="s-8" color="black" hvcolor=''>
+					8
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-spade"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3l4.919 4.5c.61 .587 1.177 1.177 1.703 1.771a5.527 5.527 0 0 1 .264 6.979c-1.18 1.56 -3.338 1.92 -4.886 .75v1l1 3h-6l1 -3v-1c-1.54 1.07 -3.735 .772 -4.886 -.75a5.527 5.527 0 0 1 .264 -6.979a30.883 30.883 0 0 1 1.703 -1.771a1541.72 1541.72 0 0 1 4.919 -4.5z" /></svg>
+					
+				</Button>
+				<Button id="s-9" color="black" hvcolor=''>
+					9
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-spade"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3l4.919 4.5c.61 .587 1.177 1.177 1.703 1.771a5.527 5.527 0 0 1 .264 6.979c-1.18 1.56 -3.338 1.92 -4.886 .75v1l1 3h-6l1 -3v-1c-1.54 1.07 -3.735 .772 -4.886 -.75a5.527 5.527 0 0 1 .264 -6.979a30.883 30.883 0 0 1 1.703 -1.771a1541.72 1541.72 0 0 1 4.919 -4.5z" /></svg>
+					
+				</Button>
+				<Button id="s-10" color="black" hvcolor=''>
+					10
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-spade"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3l4.919 4.5c.61 .587 1.177 1.177 1.703 1.771a5.527 5.527 0 0 1 .264 6.979c-1.18 1.56 -3.338 1.92 -4.886 .75v1l1 3h-6l1 -3v-1c-1.54 1.07 -3.735 .772 -4.886 -.75a5.527 5.527 0 0 1 .264 -6.979a30.883 30.883 0 0 1 1.703 -1.771a1541.72 1541.72 0 0 1 4.919 -4.5z" /></svg>
+					
+				</Button>
+				<Button id="s-j" color="black" hvcolor=''>
+					J
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-spade"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3l4.919 4.5c.61 .587 1.177 1.177 1.703 1.771a5.527 5.527 0 0 1 .264 6.979c-1.18 1.56 -3.338 1.92 -4.886 .75v1l1 3h-6l1 -3v-1c-1.54 1.07 -3.735 .772 -4.886 -.75a5.527 5.527 0 0 1 .264 -6.979a30.883 30.883 0 0 1 1.703 -1.771a1541.72 1541.72 0 0 1 4.919 -4.5z" /></svg>
+					
+				</Button>
+				<Button id="s-q" color="black" hvcolor=''>
+					Q
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-spade"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3l4.919 4.5c.61 .587 1.177 1.177 1.703 1.771a5.527 5.527 0 0 1 .264 6.979c-1.18 1.56 -3.338 1.92 -4.886 .75v1l1 3h-6l1 -3v-1c-1.54 1.07 -3.735 .772 -4.886 -.75a5.527 5.527 0 0 1 .264 -6.979a30.883 30.883 0 0 1 1.703 -1.771a1541.72 1541.72 0 0 1 4.919 -4.5z" /></svg>
+					
+				</Button>
+				<Button id="s-k" color="black" hvcolor=''>
+					K
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-spade"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3l4.919 4.5c.61 .587 1.177 1.177 1.703 1.771a5.527 5.527 0 0 1 .264 6.979c-1.18 1.56 -3.338 1.92 -4.886 .75v1l1 3h-6l1 -3v-1c-1.54 1.07 -3.735 .772 -4.886 -.75a5.527 5.527 0 0 1 .264 -6.979a30.883 30.883 0 0 1 1.703 -1.771a1541.72 1541.72 0 0 1 4.919 -4.5z" /></svg>
+					
+				</Button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Diamonds Modal -->
+<div id="diamonds-m" class="modal hidden fixed z-10 inset-0 overflow-y-auto bg-black bg-opacity-50">
+	<div class="flex items-center justify-center h-screen">
+		<!-- Modal content -->
+		<div class="modal-content bg-white p-6 rounded-lg shadow-lg w-2/3 h-80">
+			<span id="close-diamonds-m" class="close absolute top-0 right-0 cursor-pointer p-4">&times;</span>
+      		<p class="mb-4">Select an option:</p>
+			<!-- Grid for buttons -->
+			<div class="grid grid-cols-4 gap-2">
+				<Button id="d-a" color="red" hvcolor=''>
+					AS
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-diamonds"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.831 20.413l-5.375 -6.91c-.608 -.783 -.608 -2.223 0 -3l5.375 -6.911a1.457 1.457 0 0 1 2.338 0l5.375 6.91c.608 .783 .608 2.223 0 3l-5.375 6.911a1.457 1.457 0 0 1 -2.338 0z" /></svg>
+				</Button>
+				<Button id="d-2" color="red" hvcolor=''>
+					2
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-diamonds"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.831 20.413l-5.375 -6.91c-.608 -.783 -.608 -2.223 0 -3l5.375 -6.911a1.457 1.457 0 0 1 2.338 0l5.375 6.91c.608 .783 .608 2.223 0 3l-5.375 6.911a1.457 1.457 0 0 1 -2.338 0z" /></svg>
+				</Button>
+				<Button id="d-3" color="red" hvcolor=''>
+					3
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-diamonds"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.831 20.413l-5.375 -6.91c-.608 -.783 -.608 -2.223 0 -3l5.375 -6.911a1.457 1.457 0 0 1 2.338 0l5.375 6.91c.608 .783 .608 2.223 0 3l-5.375 6.911a1.457 1.457 0 0 1 -2.338 0z" /></svg>
+				</Button>
+				<Button id="d-4" color="red" hvcolor=''>
+					4
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-diamonds"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.831 20.413l-5.375 -6.91c-.608 -.783 -.608 -2.223 0 -3l5.375 -6.911a1.457 1.457 0 0 1 2.338 0l5.375 6.91c.608 .783 .608 2.223 0 3l-5.375 6.911a1.457 1.457 0 0 1 -2.338 0z" /></svg>
+				</Button>
+				<Button id="d-5" color="red" hvcolor=''>
+					5
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-diamonds"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.831 20.413l-5.375 -6.91c-.608 -.783 -.608 -2.223 0 -3l5.375 -6.911a1.457 1.457 0 0 1 2.338 0l5.375 6.91c.608 .783 .608 2.223 0 3l-5.375 6.911a1.457 1.457 0 0 1 -2.338 0z" /></svg>
+				</Button>
+				<Button id="d-6" color="red" hvcolor=''>
+					6
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-diamonds"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.831 20.413l-5.375 -6.91c-.608 -.783 -.608 -2.223 0 -3l5.375 -6.911a1.457 1.457 0 0 1 2.338 0l5.375 6.91c.608 .783 .608 2.223 0 3l-5.375 6.911a1.457 1.457 0 0 1 -2.338 0z" /></svg>
+				</Button>
+				<Button id="d-7" color="red" hvcolor=''>
+					7
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-diamonds"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.831 20.413l-5.375 -6.91c-.608 -.783 -.608 -2.223 0 -3l5.375 -6.911a1.457 1.457 0 0 1 2.338 0l5.375 6.91c.608 .783 .608 2.223 0 3l-5.375 6.911a1.457 1.457 0 0 1 -2.338 0z" /></svg>
+				</Button>
+				<Button id="d-8" color="red" hvcolor=''>
+					8
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-diamonds"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.831 20.413l-5.375 -6.91c-.608 -.783 -.608 -2.223 0 -3l5.375 -6.911a1.457 1.457 0 0 1 2.338 0l5.375 6.91c.608 .783 .608 2.223 0 3l-5.375 6.911a1.457 1.457 0 0 1 -2.338 0z" /></svg>
+				</Button>
+				<Button id="d-9" color="red" hvcolor=''>
+					9
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-diamonds"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.831 20.413l-5.375 -6.91c-.608 -.783 -.608 -2.223 0 -3l5.375 -6.911a1.457 1.457 0 0 1 2.338 0l5.375 6.91c.608 .783 .608 2.223 0 3l-5.375 6.911a1.457 1.457 0 0 1 -2.338 0z" /></svg>
+				</Button>
+				<Button id="d-10" color="red" hvcolor=''>
+					10
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-diamonds"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.831 20.413l-5.375 -6.91c-.608 -.783 -.608 -2.223 0 -3l5.375 -6.911a1.457 1.457 0 0 1 2.338 0l5.375 6.91c.608 .783 .608 2.223 0 3l-5.375 6.911a1.457 1.457 0 0 1 -2.338 0z" /></svg>
+				</Button>
+				<Button id="d-j" color="red" hvcolor=''>
+					J
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-diamonds"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.831 20.413l-5.375 -6.91c-.608 -.783 -.608 -2.223 0 -3l5.375 -6.911a1.457 1.457 0 0 1 2.338 0l5.375 6.91c.608 .783 .608 2.223 0 3l-5.375 6.911a1.457 1.457 0 0 1 -2.338 0z" /></svg>
+				</Button>
+				<Button id="d-q" color="red" hvcolor=''>
+					Q
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-diamonds"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.831 20.413l-5.375 -6.91c-.608 -.783 -.608 -2.223 0 -3l5.375 -6.911a1.457 1.457 0 0 1 2.338 0l5.375 6.91c.608 .783 .608 2.223 0 3l-5.375 6.911a1.457 1.457 0 0 1 -2.338 0z" /></svg>
+				</Button>
+				<Button id="d-k" color="red" hvcolor=''>
+					K
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-diamonds"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.831 20.413l-5.375 -6.91c-.608 -.783 -.608 -2.223 0 -3l5.375 -6.911a1.457 1.457 0 0 1 2.338 0l5.375 6.91c.608 .783 .608 2.223 0 3l-5.375 6.911a1.457 1.457 0 0 1 -2.338 0z" /></svg>
+				</Button>
+			</div>
+		</div>
+	</div>
+</div>
+
